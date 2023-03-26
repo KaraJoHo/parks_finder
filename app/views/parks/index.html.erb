@@ -1,0 +1,14 @@
+<h1>Parks in: <%= @state %></h1>
+<%= link_to "Find Parks", root_path %>
+<p>Number of Parks: <%= @parks.num_of_parks %> </p>
+
+<% @parks.parks.each do |park| %>
+  <div id=<%="park_info_#{park.id}"%>>
+    <p><b>Name: <%= park.full_name %></b></p>
+    <p>Description: <%= park.description %></p>
+    <p>Directions: <%= park.direction_info  %></p>
+    <p>Standard Hours: <% park.standard_hours.each_with_index do |day, hours| %></p>
+                          <%= "#{day}: #{hours}"%>
+                       <% end %>
+  </div>
+<% end %>
